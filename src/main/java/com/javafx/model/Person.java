@@ -21,6 +21,7 @@ public class Person {
     private String emailAddress;
     private String address;
     private Date birthDate;
+    private String category;
 
     public Integer getPersonId() {
         return personId;
@@ -85,5 +86,14 @@ public class Person {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
 
 }

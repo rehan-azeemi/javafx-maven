@@ -5,17 +5,22 @@
  */
 package com.javafx.daoImpl;
 
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
 
 import com.javafx.connection.DbConnection;
 import com.javafx.dao.PersonDAO;
 import com.javafx.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 
 /**
  *
@@ -29,7 +34,7 @@ public class PersonDAOImpl implements PersonDAO {
     public Integer addPerson(Person person) {
         int row=0;
         try {
-            PreparedStatement stmt = con.prepareStatement("insert into person(first_name,last_name,nick_name,phone_number,address,email_address,birth_date) values(?,?,?,?,?,?,?)");
+            PreparedStatement stmt = con.prepareStatement("insert into person(first_name,last_name,nick_name,phone_number,address,email_address,birth_date,category) values(?,?,?,?,?,?,?,?)");
             stmt.setString(1, person.getFirstName());
             stmt.setString(2, person.getLastName());
             stmt.setString(3, person.getNickName());
@@ -37,6 +42,7 @@ public class PersonDAOImpl implements PersonDAO {
             stmt.setString(5, person.getAddress());
             stmt.setString(6, person.getEmailAddress());
             stmt.setDate(7, (Date) person.getBirthDate());
+            stmt.setString(8, person.getCategory());
             row=stmt.executeUpdate();
 
         } catch (Exception ex) {
@@ -48,8 +54,8 @@ public class PersonDAOImpl implements PersonDAO {
     @Override
     public Integer updatePerson(Person person) {
         int row=0;
-       try {
-            PreparedStatement stmt = con.prepareStatement("update person set first_name=?,last_name=?,nick_name=?,phone_number=?,address=?,email_address=?,birth_date=? where person_id=?");
+        try {
+            PreparedStatement stmt = con.prepareStatement("update person set first_name=?,last_name=?,nick_name=?,phone_number=?,address=?,email_address=?,birth_date=?,category=? where person_id=?");
             stmt.setString(1, person.getFirstName());
             stmt.setString(2, person.getLastName());
             stmt.setString(3, person.getNickName());
@@ -57,7 +63,8 @@ public class PersonDAOImpl implements PersonDAO {
             stmt.setString(5, person.getAddress());
             stmt.setString(6, person.getEmailAddress());
             stmt.setDate(7, (Date) person.getBirthDate());
-            stmt.setInt(8, person.getPersonId());
+            stmt.setString(8, person.getCategory());
+            stmt.setInt(9, person.getPersonId());
             row=stmt.executeUpdate();
 
         } catch (Exception ex) {
@@ -72,7 +79,7 @@ public class PersonDAOImpl implements PersonDAO {
         try {
             PreparedStatement stmt = con.prepareStatement("delete from person where person_id=?");
             stmt.setInt(1, personId);
-            row=stmt.executeUpdate();   
+            row=stmt.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -95,6 +102,7 @@ public class PersonDAOImpl implements PersonDAO {
                 person.setAddress(resultSet.getString("address"));
                 person.setEmailAddress(resultSet.getString("email_address"));
                 person.setBirthDate(resultSet.getDate("birth_date"));
+                person.setCategory(resultSet.getString("category"));
             }
 
         } catch (Exception ex) {
@@ -120,6 +128,7 @@ public class PersonDAOImpl implements PersonDAO {
                 person.setAddress(resultSet.getString("address"));
                 person.setEmailAddress(resultSet.getString("email_address"));
                 person.setBirthDate(resultSet.getDate("birth_date"));
+                person.setCategory(resultSet.getString("category"));
                 persons.add(person);
             }
 
