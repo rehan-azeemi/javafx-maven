@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="672.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javafx.controller.FXMLDocumentController">
+   <children>
+      <Button fx:id="clearButton" layoutX="468.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleClearButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="93.0" text="Clear" />
+      <Button fx:id="addButton" layoutX="43.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleAddButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="93.0" text="Add" />
+      <Button fx:id="deleteButton" layoutX="336.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleDeleteButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="93.0" text="Delete" />
+      <TextArea fx:id="addressField" layoutX="105.0" layoutY="225.0" onDragDetected="#handleAddButtonAction" prefHeight="36.0" prefWidth="492.0" promptText="Address" />
+      <Label layoutX="28.0" layoutY="224.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="Address" />
+      <DatePicker fx:id="date" layoutX="396.0" layoutY="171.0" prefHeight="25.0" prefWidth="203.0" />
+      <Label layoutX="327.0" layoutY="171.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="Birth Date" />
+      <TextField fx:id="phoneField" layoutX="104.0" layoutY="171.0" onAction="#handleAddButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="203.0" promptText="Phone #" />
+      <TextField fx:id="emailField" layoutX="396.0" layoutY="126.0" onAction="#handleAddButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="203.0" promptText="Email" />
+      <TextField fx:id="lnameField" layoutX="396.0" layoutY="86.0" onAction="#handleAddButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="203.0" promptText="Last Name" />
+      <Label layoutX="327.0" layoutY="126.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="Email" />
+      <Label layoutX="327.0" layoutY="86.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="Last Name" />
+      <Button fx:id="updateButton" layoutX="191.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="93.0" text="Update" />
+      <TextField fx:id="nickNameField" layoutX="104.0" layoutY="126.0" onAction="#handleAddButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="203.0" promptText="Nick Name" />
+      <Label layoutX="28.0" layoutY="171.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="Phone #" />
+      <Label layoutX="28.0" layoutY="126.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="Nick Name" />
+      <Label fx:id="nameLabel" layoutX="28.0" layoutY="86.0" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="69.0" text="First Name" />
+      <TextField fx:id="fnameField" layoutX="104.0" layoutY="86.0" onAction="#handleAddButtonAction" onDragDetected="#handleAddButtonAction" prefHeight="25.0" prefWidth="203.0" promptText="First Name" />
+      <TableView fx:id="tableView" layoutX="28.0" layoutY="356.0" onMouseClicked="#handleRowClickAction" prefHeight="280.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="personIdColumn" prefWidth="25.0" text="ID" />
+          <TableColumn fx:id="firstNameColumn" prefWidth="70.0" text="F-Name" />
+            <TableColumn fx:id="lastNameColumn" prefWidth="70.0" text="L-Name" />
+            <TableColumn fx:id="nickNameColumn" prefWidth="70.0" text="Nick-Name" />
+            <TableColumn fx:id="emailColumn" prefWidth="90.0" text="Email" />
+            <TableColumn fx:id="birthDateColumn" prefWidth="75.0" text="Birth-Date" />
+            <TableColumn fx:id="phoneColumn" minWidth="3.0" prefWidth="70.0" text="Phone" />
+            <TableColumn fx:id="addressColumn" prefWidth="102.0" text="Address" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="243.0" layoutY="39.0" onDragDetected="#handleAddButtonAction" prefHeight="27.0" prefWidth="177.0" text="Person Information">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
